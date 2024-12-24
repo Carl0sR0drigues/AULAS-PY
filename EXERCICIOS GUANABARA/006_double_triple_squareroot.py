@@ -1,0 +1,5 @@
+number = int(input('Enter a number: '))
+print(f'Double {number} is worth {number*2}')
+print(f'Trible {number} is worth {number*3}')
+print(f'The square root of {number} is equal to {number**0.5:.3}')
+print('')

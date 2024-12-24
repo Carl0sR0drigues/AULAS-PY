@@ -1,0 +1,33 @@
+import time
+
+import win32com.client
+
+#Inicia o excel
+
+File = win32com.client.Dispatch("Excel.Application")
+
+#torna ele visivel/invisivel
+
+File.Visible = 1 # se 0 ele faz o processo em segundo plano sem mostrar o codigo
+
+Workbook = File.Workbooks.open("C:\\Users\\arquivo.xlsx")#local do arquivo
+
+#realiza a atualização dos dados.
+
+#utilizamos o time.sleep() para que a aplicação aguarde até que atualização ocorra por completo.
+
+time.sleep(10)
+
+#Salva a planilha
+
+Workbook.Save()
+
+#Fecha a planilha
+
+File.Quit()
+
+
+
+#Para executar esse código, você precisará ter o pacote pywin32 instalado em seu ambiente Python e o pacote ter também o excel. Você pode instalar a biblioteca executando o seguinte comando no terminal:
+
+#pip install pywin32

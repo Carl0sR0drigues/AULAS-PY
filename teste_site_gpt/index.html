@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideal | Ecommerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="rents-container">
+        <!-- O conteúdo do arquivo txt será inserido aqui -->
+    </div>
+
+    <script>
+        // Função para carregar o conteúdo do arquivo .txt
+        fetch('data.txt')
+            .then(response => response.text()) // Lê o conteúdo do arquivo como texto
+            .then(data => {
+                // Divide as linhas do arquivo
+                const lines = data.split('\n');
+                const container = document.querySelector('.rents-container');
+                
+                lines.forEach(line => {
+                    // Se a linha não estiver vazia, cria um bloco de imóvel
+                    if (line.trim() !== "") {
+                        const [image, price] = line.split('|'); // Dividindo a linha por '|'
+                        const rentDiv = document.createElement('div');
+                        rentDiv.classList.add('rent');
+                        
+                        rentDiv.innerHTML = `
+                            <img src="${image.trim()}" alt="Imóvel">
+                            <div class="rental-price">
+                                <strong>Locação</strong>
+                                <button>${price.trim()}</button>
+                            </div>
+                        `;
+                        
+                        container.appendChild(rentDiv);
+                    }
+                });
+            })
+            .catch(error => console.error('Erro ao carregar o arquivo:', error));
+    </script>
+</body>
+</html>

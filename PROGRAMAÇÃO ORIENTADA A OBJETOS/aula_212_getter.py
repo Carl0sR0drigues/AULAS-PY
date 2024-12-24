@@ -1,0 +1,38 @@
+import limpar
+
+# O GETTER É USADO PARA GARANTIR QUE EU POSSAR FAZER ALTERAÇÕES
+# NOS ATRIBUTOS SEM QUEBRA DE CODIGO
+# EXEMPLO: EU TENHO A CORA ROXA EM MEUS ATRIBUTOS MAS POSSO PRECISAR ALTERAR ELE PARA OUTRA COR
+# SE OUTRA PESSOA ESTIVER USANDO MEU CODIGO ISSO VAI GERAR ERROS, COM O GETTER ISSO NÃO ACONTECE
+
+# EXEMPLO:
+
+# MEU CODIGO
+# DESSA FORMA POSSO ALTERAR OS ATRIBUTOS SEM ERROS PARA O USUARIO
+class Tinta:
+    def __init__(self, tipo_recipiente):
+        self.lata_pequena = tipo_recipiente
+
+    # def get_tinta(self):
+    #     print('ESSA COR É: ')
+    #     return self.lata
+
+    # ESSE É O  METODO PROPERTY, ELE É UM METODO QUE SE COMPORTA COMO ATRIBUTO, QUANDO EU USO ELE TODOS OS
+    # LUGARES QUE ESTÃO CHAMANDO O METODO USADO VAI TER O RETORNO DO QUE EU COLOQUEI NO PROPERTY
+    # TUDO ISSO CONSIDERANDO QUE VOCÊ NÃO ESTA USANDO O GETTER
+
+    #EXEMPLO:
+    @property
+    def lata(self):
+        # return 'LATA AGORA É BALDE!!!'
+        return self.lata_pequena
+
+
+
+# CODIGO DO USUARIO
+tintas = Tinta('Roxa')
+print(tintas.lata)
+
+
+
+
